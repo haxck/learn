@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#check_un").click(function(event) {
+			alert("you click this button");
+			event.preventDefault();
+		})
+	})
+	</script>
+</head>
+<body>
+<a href="#" class="button" id="check_un" onclick="check(); return false;">check username</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	#div1{
+		width: 200px;height: 100px;background-color: #CCC;border:1px solid #999;display: none;
+	}
+	</style>
+	<script type="text/javascript">
+	function over() {
+		var div1=document.getElementById('div1');
+		div1.style.display="block";
+	}
+	function out() {
+		var div1=document.getElementById('div1');
+		div1.style.display="none";
+	}
+	</script>
+</head>
+<body>
+<input type="checkbox"  onmouseover=over() onmouseout=out() />
+<div id="div1">
+	hello
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#check_un").click(function(event) {
+			var username=$("#user").val();
+			$.get(
+				"reg.php",
+				{username:username},
+				function (res) {
+					if (res.status == "false") {
+						$("#valid").html("NOOOOOO!!!")
+					}else{
+						$$("#valid").html("YEs!!!")
+					};
+				}
+				)
+			event.preventDefault();
+		})
+	})
+	</script>
+</head>
+<body>
+<form action="reg.php" method="post">
+	<p>
+		E-mail:<br>
+		<input type="text" name="email" />
+	</p>
+	<p>
+		User:<br>
+		<input type="text" name="user" />
+		<a href="#" id="check_un">check user name</a><br>
+		<p id="valid"></p>
+	</p>	
+	<p>
+		password:<br>
+		<input type="password" name="psw" />
+	</p>
+	<p>
+		<input type="submit" value="ok">
+	</p>
+</form>
+</body>
+</html>
