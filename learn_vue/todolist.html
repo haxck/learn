@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+        <style>
+        .finished{
+            text-decoration: line-through;
+        }
+        </style>
+    </head>
+    <body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <input type="text" name="" placeholder="write something" v-model="newItem" @keyup.enter="addNew">
+        <ul>
+            <li v-for="i in items"  v-bind:class="{finished:i.isFinished}" @click="toggleFinished(i)">
+                {{i.label}}
+            </li>
+        </ul>
+    </div>
+    <script>
+    var STORAGE_KEY = 'Todoist'
+    var stores = {
+        save:function(items){
+            localStorage.setItem(STORAGE_KEY,JSON.stringify(items))
+        },
+        get:function(){
+            var Items = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')
+            return Items
+        }
+    }
+        var app = new Vue({
+            data:{
+                items: stores.get(),
+                title:'Todoist',
+                newItem:""
+            },  
+            methods:{
+                toggleFinished:function(i){
+                    // if(i.isFinished !== true){
+                    //     i.isFinished = true;
+                    // }else{
+                    //     i.isFinished = false;
+                    // }
+                    i.isFinished = !i.isFinished;
+                },
+                addNew:function(){
+                    this.items.push({
+                        label:this.newItem,
+                        isFinished:false
+                    })
+                    this.newItem = ""
+                }
+            },
+            watch:{
+                items:{
+                    handler: function(items){
+                        stores.save(items)
+                    },
+                    deep:true
+                }
+            }
+        })
+app.$mount('#app')
+    </script>
+    </body>
+</html>
