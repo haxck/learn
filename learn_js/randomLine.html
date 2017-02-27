@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <style>
+  html ,body{
+    margin: 0px;
+  }
+  canvas{
+    display: block;
+  }
+  </style>
+  <body>
+  <canvas id="canvas"></canvas>
+  <script>
+    var canvas = document.getElementById("canvas"),
+        context = canvas.getContext("2d"),
+        width = canvas.width = window.innerWidth,
+        height = canvas.height = window.innerHeight;
+
+        for(i=0;i<100;i++){
+          context.beginPath();
+          context.moveTo(Math.random() * width,Math.random() * height)
+          context.lineTo(Math.random() * width,Math.random() * height)
+          context.stroke()
+        }
+  </script>
+  </body>
+</html>

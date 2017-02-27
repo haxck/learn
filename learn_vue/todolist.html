@@ -43,7 +43,7 @@
         <h1>{{title}}</h1>
         <input type="text" name="" placeholder="准备干点儿什么？" v-model="newItem" @keyup.enter="addNew">
         <ul>
-            <li v-for="i in items"  v-bind:class="{finished:i.isFinished}" @click="toggleFinished(i)">
+            <li v-for="i in items" v-bind:class="{finished:i.isFinished}" @click="toggleFinished(i)">
                 {{i.label}}
             </li>
         </ul>
@@ -76,6 +76,7 @@
                     // }else{
                     //     i.isFinished = false;
                     // }
+                    // 取反
                     i.isFinished = !i.isFinished;
                 },
                 addNew:function(){
