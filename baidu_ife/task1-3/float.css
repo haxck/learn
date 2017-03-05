@@ -1,0 +1,49 @@
+html, body{
+  margin: 0;
+  padding: 0;
+}
+.right{
+  float: right;
+}
+.left{
+  float: left;
+}
+.container{
+  padding: 20px;
+  background: #eee;
+  border: 1px #999 solid;
+  widows: 100%;
+}
+.team{
+  width: 158px;
+  padding: 20px;
+  border: 1px #999 solid;
+  float: left;
+}
+.image{
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+}
+.image:not(:first-child){
+    margin-top: 20px;
+}
+.image img{
+  height: 80px;
+}
+
+.content{
+  margin: 0px 140px 0px 220px;
+  border: 1px #999 solid;
+  padding: 20px;
+}
+
+.person{
+  padding: 20px;
+  width: 78px;
+  border: 1px #999 solid;
+  float: right;
+}
+.clear{
+  clear: both;
+}
