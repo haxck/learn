@@ -7,25 +7,24 @@
   </head>
   <body>
     <div id="app">
-      <input v-model="parentMsg">
-      <my-component v-bind:msg="parentMsg"></my-component>
+      <input v-model="parentmsg">
+      <mycom v-bind:msg="parentmsg"></mycom>
     </div>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script>
-    var comp ={
-      template: '<span>{{ msg }}</span>',
-      props: ['msg']
+    var mycom = {
+      template: "<span>{{ msg }}</span>",
+      props: {
+        msg: Number
+      }
     }
-    var vm = new Vue({
+    var app = new Vue({
       el: '#app',
-      data: function(){
-        return {
-          parentMsg: '123'
-        }
+      data: {
+        parentmsg: 123
       },
-
-      components: {
-        'my-component': comp
+      components:{
+        mycom
       }
     })
   </script>
